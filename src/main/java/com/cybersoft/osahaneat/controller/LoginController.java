@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-@CrossOrigin("*")
+
 @RestController
 @RequestMapping("/login")
 public class LoginController {
@@ -33,6 +33,12 @@ public class LoginController {
     public ResponseEntity<?> signup(@RequestBody SignUpRequest signUpRequest){
         ResponseData responseData= new ResponseData();
         responseData.setData(loginServiceImpl.addUser(signUpRequest));
+        return new ResponseEntity<>(responseData, HttpStatus.OK);
+    }
+    @GetMapping("/getAllUser")
+    public ResponseEntity<?> getAllUser(){
+        ResponseData responseData= new ResponseData();
+        responseData.setData(loginServiceImpl.getAllUser());
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
 }

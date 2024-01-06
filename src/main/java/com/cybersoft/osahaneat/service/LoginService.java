@@ -30,7 +30,7 @@ public class LoginService implements LoginServiceImpl {
             x.setFullname(i.getFullname());
             usersListDTO.add(x);
 
-            System.out.println(i.getFullname() + " " + i.getPassword());
+//            System.out.println(i.getFullname() + " " + i.getPassword());
         }
         return usersListDTO;
 
