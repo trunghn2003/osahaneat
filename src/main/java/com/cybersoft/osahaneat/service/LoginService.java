@@ -2,19 +2,21 @@ package com.cybersoft.osahaneat.service;
 
 import com.cybersoft.osahaneat.dto.UsersDTO;
 import com.cybersoft.osahaneat.entity.Users;
+import com.cybersoft.osahaneat.service.impl.LoginServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.cybersoft.osahaneat.repository.UserInterface;
+import com.cybersoft.osahaneat.repository.UserRepository;
 
 @Service
-public class LoginService {
+public class LoginService implements LoginServiceImpl {
     @Autowired
-    UserInterface userInterface;
+    UserRepository userRepository;
+    @Override
     public List<UsersDTO> getAllUser(){
-        List<Users> usersList =  userInterface.findAll();
+        List<Users> usersList =  userRepository.findAll();
         List<UsersDTO> usersListDTO =  new ArrayList<>();
 
 
@@ -30,5 +32,15 @@ public class LoginService {
         }
         return usersListDTO;
 
-    };
+    }
+
+    @Override
+    public boolean checkLogin(String username, String password) {
+        List<Users> listUser = userRepository.findByUsernameAndPassword(username,password);
+        return  listUser.size()>0;
+    }
+
+    ;
+
+
 }
