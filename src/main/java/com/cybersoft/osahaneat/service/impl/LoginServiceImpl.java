@@ -8,6 +8,7 @@ import java.util.List;
 public interface LoginServiceImpl {
     List<UsersDTO> getAllUser();
     boolean checkLogin(String username, String password);
+
     boolean addUser(SignUpRequest signUpRequest);
 
 }
