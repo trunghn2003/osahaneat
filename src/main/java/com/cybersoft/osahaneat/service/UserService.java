@@ -18,7 +18,6 @@ public class UserService implements UserServiceImpl {
         List<Users> usersList =  userRepository.findAll();
         List<UsersDTO> usersListDTO =  new ArrayList<>();
 
-
         for(Users i: usersList){
             UsersDTO x = new UsersDTO();
             x.setId(i.getId());

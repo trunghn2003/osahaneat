@@ -6,6 +6,7 @@ import com.cybersoft.osahaneat.entity.Users;
 import com.cybersoft.osahaneat.payload.request.SignUpRequest;
 import com.cybersoft.osahaneat.service.impl.LoginServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,6 +17,9 @@ import com.cybersoft.osahaneat.repository.UserRepository;
 public class LoginService implements LoginServiceImpl {
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
     @Override
     public List<UsersDTO> getAllUser(){
         List<Users> usersList =  userRepository.findAll();
@@ -38,8 +42,8 @@ public class LoginService implements LoginServiceImpl {
 
     @Override
     public boolean checkLogin(String username, String password) {
-        List<Users> listUser = userRepository.findByUsernameAndPassword(username,password);
-        return  listUser.size()>0;
+        Users users =  userRepository.findByUsername(username);
+        return passwordEncoder.matches(password,users.getPassword());
     }
 
     @Override
