@@ -10,7 +10,13 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
+  servlet:
+    multipart:
+      max-file-size: 10MB
 jwt:
   privateKey: wii1g2mK9VOcjKOpu9r6kSxk+JmmO+3fAGEoyQl5Vu0=
+
+fileUpload:
+  rootPath: C:\Users\hoang\OneDrive\Máy tính\uploads
 
 
