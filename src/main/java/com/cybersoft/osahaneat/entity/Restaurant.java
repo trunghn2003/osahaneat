@@ -76,6 +76,7 @@ public class Restaurant {
         isFreeship = freeship;
     }
 
+
     public String getAddress() {
         return address;
     }
