@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.text.ParseException;
 import java.util.Date;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/restaurant")
 public class RestaurantController {

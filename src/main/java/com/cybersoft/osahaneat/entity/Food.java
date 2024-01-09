@@ -18,6 +18,16 @@ public class Food {
 
     @Column(name = "price")
     private double price;
+    @Column(name = "time_ship")
+    private String timeShip;
+
+    public String getTimeShip() {
+        return timeShip;
+    }
+
+    public void setTimeShip(String timeShip) {
+        this.timeShip = timeShip;
+    }
 
     public int getId() {
         return id;

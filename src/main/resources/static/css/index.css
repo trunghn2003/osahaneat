@@ -1,0 +1,55 @@
+    #feature-restaurant, #feature-category {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 20px;
+    }
+
+    #feature-category {
+        margin-top: 20px; /* Add some space between feature-restaurant and feature-category */
+    }
+
+    .restaurant-item, .category-item {
+        border: 1px solid #ddd;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        width: 200px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .restaurant-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .restaurant-details, .category-details {
+        margin-top: 10px;
+    }
+
+    .title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 5px;
+    }
+
+    .rating, .freeship {
+        font-size: 12px;
+        color: #333;
+        margin-bottom: 5px;
+    }
+    .image1 {
+        /* Add specific styles for the image1 class here */
+        max-width: 50px;
+        height: 50px;
+        border-radius: 8px;
+    }

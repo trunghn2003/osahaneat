@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.crypto.SecretKey;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/login")
 public class LoginController {
@@ -39,7 +39,7 @@ public class LoginController {
         if(loginServiceImpl.checkLogin(username, password)){
 
             String token = jwtUtilsHelper.generateToken(username);
-            System.out.println(token);
+//            System.out.println(token);
             responseData.setData(token);
 //            responseData.setSucess(true);
 

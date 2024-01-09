@@ -12,7 +12,8 @@ public class Category {
     private  int id;
     @Column(name ="name_cate")
     private String nameCate;
-
+    @Column(name = "is_freeship")
+    private  boolean isFreeship;
     @Column(name = "create_date")
     private Date createDate;
 
@@ -21,6 +22,13 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private Set<MenuRestaurant> listMenuRestaurant;
 
+    public boolean isFreeship() {
+        return isFreeship;
+    }
+
+    public void setFreeship(boolean freeship) {
+        isFreeship = freeship;
+    }
 
     public Set<Food> getListFood() {
         return listFood;

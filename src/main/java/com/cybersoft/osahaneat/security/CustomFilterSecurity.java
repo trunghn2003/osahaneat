@@ -36,12 +36,12 @@ public class CustomFilterSecurity  {
     }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity https) throws  Exception{
-        https.cors().disable()
+        https.cors().and()
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy((SessionCreationPolicy.STATELESS))
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/login/**", "/restaurant/file/**")
+                .requestMatchers("/login/**", "/restaurant/file/**","/menu/file/**")
 
                 .permitAll()
 
