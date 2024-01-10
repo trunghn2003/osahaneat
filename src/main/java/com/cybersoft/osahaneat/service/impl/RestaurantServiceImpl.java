@@ -14,4 +14,5 @@ public interface  RestaurantServiceImpl {
             , String   address, String openDate) throws ParseException;
 
     List<RestaurantDTO> getAllRestaurant();
+    RestaurantDTO getDetailRestaurant(int id);
 }

@@ -15,12 +15,14 @@ $(document).ready(function() {
     })
     .done(function(msg) {
         if (msg.sucess) {
+            console.log(msg.data)
             $.each(msg.data, function(index, value) {
                 // Handle the case where rating is 'NaN'
                 var rating = isNaN(value.rating) ? 'N/A' : value.rating;
-
+                    console.log("title:"+ value.title + value.id)
+                    // console.log(value. + value.rating)
                 // Create HTML for each restaurant
-                var html = `
+                var html = `<a href="detail.html?id=${value.id}"
                     <div class="restaurant-item">
                         <img class="image1 restaurant-image" src="${linkRestaurant}/file/${value.image}" alt="${value.title}">
                         <div class="restaurant-details">
@@ -30,6 +32,7 @@ $(document).ready(function() {
                             <p class="freeship">Free Shipping: ${value.freeship ? 'Yes' : 'No'}</p>
                         </div>
                     </div>
+                    </a>
                 `;
 
                 // Append HTML to the feature-restaurant div

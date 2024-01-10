@@ -21,6 +21,17 @@ public class Food {
     @Column(name = "time_ship")
     private String timeShip;
 
+    @Column(name = "description")
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getTimeShip() {
         return timeShip;
     }

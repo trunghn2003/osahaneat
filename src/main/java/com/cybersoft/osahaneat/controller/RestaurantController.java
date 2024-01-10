@@ -59,4 +59,17 @@ public class RestaurantController {
                                 resource.getFilename() + "\"").body(resource);
 
     }
+
+    // lay thong tin restaurant tu id
+    @GetMapping("/detail")
+    public ResponseEntity<?> getDetailRestaurant(@RequestParam int id){
+        ResponseData responseData= new ResponseData();
+//        List<Re>
+//
+        responseData.setData(restaurantService.getDetailRestaurant(id));
+
+        return new ResponseEntity<>(responseData, HttpStatus.OK);
+
+    }
+
 }
