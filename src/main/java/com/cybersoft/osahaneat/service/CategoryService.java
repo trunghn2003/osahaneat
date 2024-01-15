@@ -6,6 +6,7 @@ import com.cybersoft.osahaneat.entity.Food;
 import com.cybersoft.osahaneat.repository.CategoryRepository;
 import com.cybersoft.osahaneat.service.impl.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -15,8 +16,10 @@ public class CategoryService implements CategoryServiceImpl {
     @Autowired
     CategoryRepository categoryRepository;
 
+    @Cacheable("CategoryHome")
     @Override
     public List<CategoryDTO> getCategoryHomepage() {
+        System.out.println("kiem tra cache");
         PageRequest pageRequest = PageRequest.of(0,2);
         List<Category> categoryList =  categoryRepository.findAll();
         List<CategoryDTO> categoryDTOList = new ArrayList<>();
@@ -36,7 +39,7 @@ public class CategoryService implements CategoryServiceImpl {
             categoryDTOList.add(categoryDTO);
 
         }
-        System.out.println("ok");
+//        System.out.println("ok");
         return  categoryDTOList;
 
 //        return null;

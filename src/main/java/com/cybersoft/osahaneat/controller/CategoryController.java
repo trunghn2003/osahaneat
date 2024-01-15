@@ -3,6 +3,7 @@ package com.cybersoft.osahaneat.controller;
 import com.cybersoft.osahaneat.payload.ResponseData;
 import com.cybersoft.osahaneat.service.impl.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,5 +24,10 @@ public class CategoryController {
 
         return new ResponseEntity<>(responseData, HttpStatus.OK);
 
+    }
+    @CacheEvict(value = "CategoryHome", allEntries = true)
+    @GetMapping("/clearcache")
+    public  String cleanCache(){
+        return "Clean Cache sucess";
     }
 }
