@@ -8,16 +8,22 @@ import com.cybersoft.osahaneat.service.impl.LoginServiceImpl;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Encoders;
 import io.jsonwebtoken.security.Keys;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.crypto.SecretKey;
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/login")
 public class LoginController {
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
+
 
 
     @Autowired
@@ -31,6 +37,11 @@ public class LoginController {
     public ResponseEntity<?> signin(@RequestParam String username,
                                     @RequestParam String password){
         ResponseData responseData= new ResponseData();
+        logger.trace("kiem tra trace log");
+        logger.debug("kiem tra trace dedub");
+        logger.info("kiem tra info log");
+        logger.warn("kiem tra warn log");
+        logger.error("kiem tra warn error");
 
 //        SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 //        String jwtKey = Encoders.BASE64.encode(key.getEncoded());

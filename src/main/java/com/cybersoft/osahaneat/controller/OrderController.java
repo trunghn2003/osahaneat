@@ -17,8 +17,6 @@ public class OrderController {
     OrderServiceImpl orderService;
     @PostMapping("")
     public ResponseEntity<?> getAllUser (@RequestBody OrderRequest orderRequest){
-
-
         return new ResponseEntity<>(orderService.insertOrder(orderRequest), HttpStatus.OK);
     }
 }
